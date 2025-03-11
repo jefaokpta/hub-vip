@@ -1,0 +1,30 @@
+# Arquivos e diretórios a serem ignorados no build do Docker
+
+# Dependências
+node_modules
+npm-debug.log
+
+# Arquivos de sistema
+.DS_Store
+
+# Arquivos de controle de versão
+.git
+.gitignore
+
+# Arquivos de ambiente (para evitar vazamento de credenciais)
+# Comentado porque precisamos do .env para desenvolvimento local
+# .env
+
+# Arquivos de documentação
+README.md
+CHANGELOG.md
+documentation
+
+# Arquivos de configuração de desenvolvimento
+.vscode
+.idea
+*.sublime-*
+
+# Logs
+logs
+*.log 

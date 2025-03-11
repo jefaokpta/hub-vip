@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_HOST=db
+      - DB_USER=hubuser
+      - DB_PASSWORD=HuBPassW0rd2025!!
+      - DB_NAME=hub_vip
+      - PORT=3001
+    restart: unless-stopped
+    volumes:
+      - ./src:/app/src
