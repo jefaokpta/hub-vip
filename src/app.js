@@ -17,11 +17,6 @@ app.use('/clientes', clienteRoutes);
 app.use('/tickets', ticketRoutes);
 app.use('/faturamento', faturamentoRoutes);
 
-//teste de get
-app.get('/teste', (req, res) => {
-  res.json({ message: 'teste de get' });
-});
-
 // Inicia o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
