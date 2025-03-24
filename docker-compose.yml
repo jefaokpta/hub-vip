@@ -1,5 +1,13 @@
 services:
 
+  proxy:
+    image: nginx:latest
+    ports:
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+
   db:
       image: mysql:8
       environment:
@@ -18,8 +26,6 @@ services:
 
   api:
     build: .
-    ports:
-      - "3001:3000"
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}
@@ -35,8 +41,6 @@ services:
 
   metabase:
     image: metabase/metabase:v0.53.7.5
-    ports:
-      - "3000:3000"
     environment:
       - MB_DB_TYPE=mysql
       - MB_DB_CONNECTION_URI=mysql://${DB_USER}:${DB_PASSWORD}@db:3306/metabase?useSSL=false
