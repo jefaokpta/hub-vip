@@ -1,4 +1,5 @@
 # Arquivos e diretórios a serem ignorados no build do Docker
+database/
 
 # Dependências
 node_modules

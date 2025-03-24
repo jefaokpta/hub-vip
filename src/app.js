@@ -2,7 +2,7 @@
 require('dotenv').config(); // Carrega variáveis do .env
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 // Middleware para parse do JSON
 app.use(express.json());
