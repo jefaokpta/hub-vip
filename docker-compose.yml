@@ -7,6 +7,9 @@ services:
     volumes:
       - ./nginx/conf-proxy:/etc/nginx/conf.d/
       - ./nginx/certs:/etc/nginx/certs/
+    restart: always
+    networks:
+      - hub-network
 
   db:
       image: mysql:8
