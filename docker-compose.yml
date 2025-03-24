@@ -7,11 +7,14 @@ services:
         - MYSQL_DATABASE=${DB_NAME}
         - MYSQL_USER=${DB_USER}
         - MYSQL_PASSWORD=${DB_PASSWORD}
+        - MYSQL_MULTIPLE_DATABASES=metabase
       ports:
         - "3306:3306"
       volumes:
         - ./database/db_data:/var/lib/mysql
         - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql  # Script para criar mais bancos
+      networks:
+        - hub-network
 
   api:
     build: .
@@ -27,16 +30,26 @@ services:
       - ./src:/app/src
     depends_on:
       - db
+    networks:
+      - hub-network
 
-  # metabase:
-  #   image: metabase/metabase:v0.53.7.5
-  #   ports:
-  #     - "3000:3000"
-  #   environment:
-  #     - MB_DB_TYPE=mysql
-  #     - MB_DB_DBNAME=metabase
-  #     - MB_DB_USER=${DB_USER}
-  #     - MB_DB_PASSWORD=${DB_PASSWORD}
-  #     - MB_DB_HOST=${DB_HOST}
-  #   depends_on:
-  #     - db
+  metabase:
+    image: metabase/metabase:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - MB_DB_TYPE=mysql
+      - MB_DB_DBNAME=metabase
+      - MB_DB_USER=${DB_USER}
+      - MB_DB_PASSWORD=${DB_PASSWORD}
+      - MB_DB_HOST=db
+      - MB_DB_PORT=3306
+      - JAVA_OPTS=-Dmb.db.password=${DB_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - hub-network
+
+networks:
+  hub-network:
+    driver: bridge
