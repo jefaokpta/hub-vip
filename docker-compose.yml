@@ -5,8 +5,8 @@ services:
     ports:
       - 443:443
     volumes:
-      - ./nginx/conf-proxy:/etc/nginx/conf.d
-      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/conf-proxy:/etc/nginx/conf.d/
+      - ./nginx/certs:/etc/nginx/certs/
 
   db:
       image: mysql:8
