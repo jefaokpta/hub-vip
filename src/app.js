@@ -14,10 +14,10 @@ const faturamentoRoutes = require('./routes/faturamentoRoutes');
 const trafegoRoutes = require('./routes/trafegoRoutes');
 
 // Define as rotas base
-app.use('/clientes', clienteRoutes);
-app.use('/tickets', ticketRoutes);
-app.use('/faturamento', faturamentoRoutes);
-app.use('/trafego', trafegoRoutes);
+app.use('/api/clientes', clienteRoutes);
+app.use('/api/tickets', ticketRoutes);
+app.use('/api/faturamento', faturamentoRoutes);
+app.use('/api/trafego', trafegoRoutes);
 
 // Inicia o servidor
 app.listen(port, () => {
