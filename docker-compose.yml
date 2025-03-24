@@ -1,8 +1,10 @@
 services:
   api:
-    build: .
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     ports:
-      - "3000:3001"
+      - "3001:3000"
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}
