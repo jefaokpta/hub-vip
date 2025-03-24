@@ -1,3 +1,3 @@
 CREATE DATABASE IF NOT EXISTS metabase;
-GRANT ALL PRIVILEGES ON metabase.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON metabase.* TO 'hubuser'@'%';
 FLUSH PRIVILEGES;
