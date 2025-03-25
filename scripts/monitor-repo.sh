@@ -8,7 +8,7 @@ BRANCH="main"
 build_api() {
     echo "🔄 Detectada mudança na branch $BRANCH. Iniciando build da API..."
     docker compose up api --build
-    echo "✅ Build concluído!"
+    echo "✅ Build concluído com sucesso!"
 }
 
 # Função para verificar mudanças no repositório
