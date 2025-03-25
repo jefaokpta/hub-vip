@@ -15,7 +15,7 @@ services:
       image: mysql:8
       environment:
         - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
-        - MYSQL_DATABASE=${DB_NAME}
+        - MYSQL_DATABASE=hub_vip
         - MYSQL_USER=${DB_USER}
         - MYSQL_PASSWORD=${DB_PASSWORD}
         - MYSQL_MULTIPLE_DATABASES=metabase
@@ -30,10 +30,10 @@ services:
   api:
     build: .
     environment:
-      - DB_HOST=${DB_HOST}
+      - DB_HOST=db
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
-      - DB_NAME=${DB_NAME}
+      - DB_NAME=hub_vip
     restart: unless-stopped
     volumes:
       - ./src:/app/src
