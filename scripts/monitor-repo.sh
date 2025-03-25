@@ -7,7 +7,7 @@ BRANCH="main"
 # Função para fazer o build da API
 build_api() {
     echo "🔄 Detectada mudança na branch $BRANCH. Iniciando build da API..."
-    docker compose up api --build
+    docker compose up api -d --build
     echo "✅ Build concluído com sucesso!"
 }
 
