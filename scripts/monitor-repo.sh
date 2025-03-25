@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configurações
-REPO_PATH="/opt/hub-vip"
+REPO_PATH="."
 BRANCH="main"
 
 # Função para fazer o build da API
