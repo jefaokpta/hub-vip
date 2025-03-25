@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Configurações
+cd /opt/hub-vip
 REPO_PATH="."
 BRANCH="main"
 
