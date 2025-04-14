@@ -2,3 +2,5 @@
 node_modules/
 database/db_data/
 nginx/certs/
+incoming/
+processed/

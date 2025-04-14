@@ -52,6 +52,18 @@ services:
     restart: unless-stopped
     networks:
       - hub-network
+  
+  parser:
+    image: node:18
+    volumes:
+      - /opt/cdrs:/opt/cdrs
+    working_dir: /opt/cdrs
+    command: ["node", "parser.js"]
+    depends_on:
+      - db
+    restart: "no"
+    networks:
+      - hub-network
 
 networks:
   hub-network:
